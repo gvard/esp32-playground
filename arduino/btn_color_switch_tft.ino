@@ -7,6 +7,7 @@
 #if defined(BOARD_LILYGO_T_QT)
   const int BTN_LFT = 0;
   const int BTN_RGHT = 47;
+  const int BACKLIGHT_PIN = 10;
 #elif defined(BOARD_ESP32_GENERIC)
   const int BTN_LFT = 0;
   const int BTN_RGHT = 4;
@@ -42,9 +43,15 @@ void setup(void) {
 }
 
 void loop() {
+  int currentLightState = digitalRead(BACKLIGHT_PIN);
   if (digitalRead(BTN_LFT) == LOW) {
     if (checkDoubleClick(BTN_LFT)) {
-      tft.fillScreen(TFT_BLUE);
+      if (currentLightState == LOW) {
+        digitalWrite(BACKLIGHT_PIN, HIGH);
+      }
+      else {
+        digitalWrite(BACKLIGHT_PIN, LOW);
+      }
     } else {
       tft.fillScreen(TFT_BLACK);
     }
