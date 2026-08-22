@@ -1,0 +1,10 @@
+build/
+bin/
+out/
+
+*.elf
+*.hex
+*.map
+
+.local/
+.settings/
