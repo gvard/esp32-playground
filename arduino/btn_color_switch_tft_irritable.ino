@@ -29,9 +29,9 @@ void handleFifthClick() {
 
   tft.setRotation(2);
   tft.fillScreen(TFT_BLACK);
+
   uint16_t pastelRed = tft.color565(240, 110, 110);
   tft.setTextColor(pastelRed, TFT_BLACK);
-
   tft.setTextSize(1);
   tft.setTextDatum(TL_DATUM);
 
